@@ -25,7 +25,7 @@ need.
     pip install dib-utils pyyaml
     pip install git+https://github.com/openstack/diskimage-builder.git
     git clone https://github.com/openstack/tripleo-image-elements.git
-    git clone https://github.com/denismakogon/trove-guest-image-elements.git
+    git clone https://github.com/shaikapsar/trove-guest-image-elements.git
     export ELEMENTS_PATH=tripleo-image-elements/elements:trove-guest-image-elements/elements:diskimage-builder/elements
 
 Building images
