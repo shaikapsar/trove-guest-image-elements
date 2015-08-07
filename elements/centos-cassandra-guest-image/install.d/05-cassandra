@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -ex
+set -o xtrace
+
+export DEBIAN_FRONTEND=noninteractive
+
+yum -y update
+
+yum -y install java
+
+echo "[datastax]
+name = DataStax Repo for Apache Cassandra
+baseurl = http://rpm.datastax.com/community
+enabled = 1
+gpgcheck = 0" | sudo tee -a /etc/yum.repos.d/datastax.repo
+
+TEMPFILE="mktemp_cassandra"
+echo "cassandra ALL=(ALL) NOPASSWD:ALL" > $TEMPFILE
+chmod 0440 $TEMPFILE
+sudo chown root:root $TEMPFILE
+sudo mv $TEMPFILE /etc/sudoers.d/70_cassandra_user
+
+yum -y install dsc22
+
+
+
+
+
